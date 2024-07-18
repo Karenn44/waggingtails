@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casper</title>
+  <link rel="stylesheet" type="text/css" href="styleslog.css"> <!-- Linking to the external CSS file -->
+</head>
+<body>
+  <div class="hero">
+    <div class="formbox">
+      <div class="buttonbox">
+        <div id="btn"></div>
+        <button typ="button" class="togglebtn" onclick="login()">Log In</button>
+        <button typ="button" class="togglebtn" onclick="register()">Register</button>
+      </div>
+      <div class="sicons">
+        <img src="fb.png">
+        <img src="tw.png">
+        <img src="go.png">
+      </div>
+      <form id="loogin" class="inputgroup" onsubmit="return validateForm('loginForm')">
+        <input type="text" class="inputfield" placeholder="User Id" required>
+        <input type="text" class="inputfield" placeholder="Enter Password" required>
+        <input type="checkbox" class="checkbox"><span>Remember Password</span>
+        <button type="submit" class="submitbtn" onclick="redirectToMain()">BOOP</button>
+      </form>
+      <form id="reggister" class="inputgroup" onsubmit="return validateForm('registerForm')">
+        <input type="text" class="inputfield" placeholder="User Id" required>
+        <input type="email" class="inputfield" placeholder="Email Id" required>
+
+        <input type="text" class="inputfield" placeholder="Enter Password" required>
+        <input type="checkbox" class="checkbox"><span>I agree to terms and conditions</span>
+        <button type="submit" class="submitbtn" onclick="redirectToMain()">LET'S BOOP</button>
+      </form>
+    </div>
+    
+  </div>
+  <script>
+    function validateForm(formId) {
+      var form = document.getElementById(formId);
+      var inputs = form.getElementsByClassName('inputfield');
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === '') {
+          alert('Please fill in all fields.');
+          return false; // Prevent form submission if any field is empty
+        }
+      }
+      return true; // Proceed with form submission if all fields are filled
+    }
+
+  function redirectToMain() {
+    window.location.href = "index.html";
+  }
+
+    var x=document.getElementById("loogin");
+    var y=document.getElementById("reggister");
+    var z=document.getElementById("btn");
+
+    function register(){
+      x.style.left="-400px";
+      y.style.left="50px";
+      z.style.left="110px";
+    }
+
+    function login(){
+      x.style.left="50px";
+      y.style.left="450px";
+      z.style.left="0px";
+    }
+  </script>
+</body>
+</html>
